@@ -74,8 +74,8 @@ public class WikiDatabaseVerticle extends AbstractVerticle {
     loadSqlQuery();
 
     jdbcClient = JDBCClient.createShared(vertx, new JsonObject()
-      .put("url", config().getString(CONFIG_WIKIDB_JDBC_URL))
-      .put("driver_class", config().getString(CONFIG_WIKIDB_JDBC_DRIVER_CLASS))
+      .put("url", config().getString(CONFIG_WIKIDB_JDBC_URL, "jdbc:hsqldb:file:db/wiki"))
+      .put("driver_class", config().getString(CONFIG_WIKIDB_JDBC_DRIVER_CLASS, "org.hsqldb.jdbcDriver"))
       .put("max_pool_size", config().getInteger(CONFIG_WIKIDB_JDBC_MAX_POOL_SIZE, 30)));
 
     jdbcClient.getConnection(ar -> {
