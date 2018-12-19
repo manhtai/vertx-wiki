@@ -22,6 +22,7 @@ public class MainVerticle extends AbstractVerticle {
       );
 
       return httpVerticleDeployment;
+
     }).setHandler(ar -> {
       if (ar.succeeded()) {
         startFuture.complete();
@@ -30,4 +31,5 @@ public class MainVerticle extends AbstractVerticle {
       }
     });
   }
+
 }

@@ -91,6 +91,7 @@ public class WikiDatabaseVerticle extends AbstractVerticle {
             startFuture.fail(create.cause());
           } else {
             vertx.eventBus().consumer(config().getString(CONFIG_WIKIDB_QUEUE, "wikidb.queue"), this::onMessage);
+            startFuture.complete();
           }
         });
       }

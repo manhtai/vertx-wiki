@@ -100,7 +100,7 @@ public class HttpServerVertice extends AbstractVerticle {
         String rawContent = body.getString("rawContent", EMPTY_PAGE_MARKDOWN);
         context.put("title", page);
         context.put("id", body.getInteger("id", -1));
-        context.put("newPage", found ? "yes" : "no");
+        context.put("newPage", found ? "no" : "yes");
         context.put("rawContent", rawContent);
         context.put("content", Processor.process(rawContent));
         context.put("timestamp", new Date().toString());

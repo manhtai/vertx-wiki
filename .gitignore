@@ -10,3 +10,4 @@ buildNumber.properties
 .mvn/timing.properties
 .idea/workspace.xml
 .idea/misc.xml
+.vertx/
