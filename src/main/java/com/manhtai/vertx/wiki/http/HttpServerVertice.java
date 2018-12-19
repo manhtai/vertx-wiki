@@ -130,11 +130,6 @@ public class HttpServerVertice extends AbstractVerticle {
     String markdown = context.request().getParam("markdown");
     boolean newPage = "yes".equals(context.request().getParam("newPage"));
 
-    JsonObject request = new JsonObject()
-      .put("id", id)
-      .put("title", title)
-      .put("markdown", markdown);
-
     Handler<AsyncResult<Void>> handler = reply -> {
       if (reply.succeeded()) {
         context.response().setStatusCode(303);
