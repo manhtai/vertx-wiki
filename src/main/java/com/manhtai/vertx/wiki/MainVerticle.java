@@ -1,5 +1,6 @@
 package com.manhtai.vertx.wiki;
 
+import com.manhtai.vertx.wiki.database.WikiDatabaseVerticle;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
@@ -16,7 +17,7 @@ public class MainVerticle extends AbstractVerticle {
       Future<String> httpVerticleDeployment = Future.future();
 
       vertx.deployVerticle(
-        "com.manhtai.vertx.wiki.HttpServerVertice",
+        "com.manhtai.vertx.wiki.http.HttpServerVertice",
         new DeploymentOptions().setInstances(2),
         httpVerticleDeployment.completer()
       );
